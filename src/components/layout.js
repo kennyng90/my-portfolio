@@ -1,23 +1,16 @@
 import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "./header"
-import "./layout.css"
+import { useState } from "react"
+import Header from "./Header"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  const [isOpen, setIsOpen] = useState(false)
+  const toggle = () => {
+    setIsOpen(!isOpen)
+  }
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Header isOpen={isOpen} toggle={toggle} />
       <div>
         <main>{children}</main>
       </div>

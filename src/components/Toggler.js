@@ -2,35 +2,22 @@ import React from "react"
 import { func, string } from "prop-types"
 import styled from "styled-components"
 
-const Button = styled.button`
-  cursor: pointer;
-  stroke: none;
-  border: 0;
-  margin: 0 1.5rem;
-  background: transparent;
-  color: ${({ theme }) => theme.text};
-`
-
-const Sun = styled.svg`
-  height: auto;
-  transition: opacity 0.3s ease;
-  transform: scale(1);
-`
-
-const Moon = styled.svg`
-  height: auto;
-  transition: opacity 0.3s ease;
-  transform: scale(1);
-`
 const Toggle = ({ theme, toggleTheme }) => {
   return (
     <Button onClick={toggleTheme}>
       {theme === "light" ? (
         <Moon
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
           viewBox="0 0 24 24"
+          stroke="currentColor"
+          css={`
+          width: 24px;
+          height: 24px;
+          @media screen and (max-width: 768px) {
+            width: 34px;
+            height: 34px;
+          }
+        `}
         >
           <path
             stroke-linecap="round"
@@ -42,10 +29,16 @@ const Toggle = ({ theme, toggleTheme }) => {
       ) : (
         <Sun
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
           viewBox="0 0 24 24"
           stroke="currentColor"
+          css={`
+            width: 28px;
+            height: 28px;
+            @media screen and (max-width: 768px) {
+              width: 44px;
+              height: 44px;
+            }
+          `}
         >
           <path
             stroke-linecap="round"
@@ -65,3 +58,24 @@ Toggle.propTypes = {
 }
 
 export default Toggle
+
+const Button = styled.button`
+  cursor: pointer;
+  stroke: none;
+  border: 0;
+  margin: 0 1.5rem;
+  background: transparent;
+  color: ${({ theme }) => theme.text};
+`
+
+const Sun = styled.svg`
+  height: auto;
+  transition: opacity 0.2s ease;
+  transform: scale(1);
+`
+
+const Moon = styled.svg`
+  height: auto;
+  transition: opacity 0.2s ease;
+  transform: scale(1);
+`
