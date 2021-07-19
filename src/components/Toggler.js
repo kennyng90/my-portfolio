@@ -6,18 +6,21 @@ const Button = styled.button`
   cursor: pointer;
   stroke: none;
   border: 0;
+  margin: 0 1.5rem;
   background: transparent;
   color: ${({ theme }) => theme.text};
 `
 
 const Sun = styled.svg`
   height: auto;
-  transition: all 0.7s linear;
+  transition: opacity 0.3s ease;
+  transform: scale(1);
 `
 
 const Moon = styled.svg`
   height: auto;
-  transition: all 0.7s linear;
+  transition: opacity 0.3s ease;
+  transform: scale(1);
 `
 const Toggle = ({ theme, toggleTheme }) => {
   return (
