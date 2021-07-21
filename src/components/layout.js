@@ -1,6 +1,7 @@
 import * as React from "react"
 import { useState } from "react"
 import Header from "./Header"
+import Hero from "./Hero"
 
 const Layout = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -11,9 +12,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header isOpen={isOpen} toggle={toggle} />
-      <div>
-        <main>{children}</main>
-      </div>
+      <Hero />
     </>
   )
 }

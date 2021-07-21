@@ -1,3 +1,6 @@
+require("dotenv").config()
+const { ACCESS_TOKEN, SPACE_ID } = process.env
+
 module.exports = {
   siteMetadata: {
     title: `Kenny's Portfolio`,
@@ -8,7 +11,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
-    'gatsby-plugin-styled-components',
+    "gatsby-plugin-styled-components",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -28,6 +31,13 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        accessToken: ACCESS_TOKEN,
+        spaceId: SPACE_ID,
       },
     },
     `gatsby-plugin-gatsby-cloud`,
