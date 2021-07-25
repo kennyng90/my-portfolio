@@ -124,14 +124,13 @@ const NavLink = styled(Link)`
     content: "";
     position: absolute;
     transform: scaleX(0);
-
     height: 2px;
-    right: 0;
-    width: 0;
-    background-color: ${({ theme }) => theme.text};
+    width: 100%;
+
     bottom: 15px;
+    left: 0;
+    background-color: ${({ theme }) => theme.text};
     transform-origin: bottom right;
-    transition-property: width;
     transition: transform 0.25s ease-out;
   }
 
@@ -140,7 +139,6 @@ const NavLink = styled(Link)`
     transition: 0.3s ease-out;
     transform: scaleX(1);
     transform-origin: bottom left;
-    width: 100%;
   }
 `
 const NavMenu = styled.div`
@@ -240,14 +238,14 @@ export const SidebarLinks = styled(Link)`
     content: "";
     position: absolute;
     transform: scaleX(0);
-
     height: 2px;
-    right: 0;
-    width: 0;
+    width: 100%;
+
+    bottom: 40px;
+    left: 0;
     background-color: ${({ theme }) => theme.text};
-    bottom: 45px;
+
     transform-origin: bottom right;
-    transition-property: width;
     transition: transform 0.25s ease-out;
   }
 
@@ -256,6 +254,5 @@ export const SidebarLinks = styled(Link)`
     transition: 0.3s ease-out;
     transform: scaleX(1);
     transform-origin: bottom left;
-    width: 100%;
   }
 `
