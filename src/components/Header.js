@@ -93,6 +93,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1300px) / 2);
+  background-color: ${({ theme }) => theme.body};
   z-index: 999;
   position: sticky;
   top: 0;

@@ -5,14 +5,14 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 
 const Hero = () => {
-  const data = useStaticQuery(graphql`
+  const heroData = useStaticQuery(graphql`
     query HeroQuery {
-      allContentfulHero {
+      allContentfulPortfolio {
         nodes {
-          description {
+          heroDescription {
             raw
           }
-          title
+          heroTitle
           contact
           email
         }
@@ -20,19 +20,19 @@ const Hero = () => {
     }
   `)
 
-  const heroContentful = data.allContentfulHero.nodes[0]
+  const heroContentful = heroData.allContentfulPortfolio.nodes[0]
 
   return (
     <>
       <HeroContainer>
         <HeroContent>
           <HeroItems>
-            <HeroTitle>{heroContentful.title}</HeroTitle>
-            <HeroH1>
+            <HeroTitle>{heroContentful.heroTitle}</HeroTitle>
+            <HeroDesc>
               {documentToReactComponents(
-                JSON.parse(heroContentful.description.raw)
+                JSON.parse(heroContentful.heroDescription.raw)
               )}
-            </HeroH1>
+            </HeroDesc>
             <ContactContainer>
               <HeroContact>{heroContentful.contact}</HeroContact>
               <HeroEmail href={"mailto:" + heroContentful.email} target="_blank" rel="noopener noreferrer">
@@ -72,6 +72,18 @@ const HeroItems = styled.div`
   max-height: 100%;
   padding: 0;
   max-width: 800px;
+
+  @media screen and (max-width: 768px) {
+   max-width: 300px;
+  }
+
+  @media screen and (max-width: 450px) {
+    max-width: 360px;
+  }
+
+  @media screen and (max-width: 400px) {
+    max-width: 320px;
+  }
 `
 
 const HeroTitle = styled.div`
@@ -86,21 +98,23 @@ const HeroTitle = styled.div`
   }
 `
 
-const HeroH1 = styled.div`
+const HeroDesc = styled.div`
   font-size: clamp(1.5rem, 6vw, 2.5rem);
-  margin-top: 5rem;
+  margin-top: 5.5rem;
   letter-spacing: 3px;
   line-height: 1.8;
   padding: 0 1rem;
 
   @media screen and (max-width: 768px) {
     margin-top: 4rem;
+    line-height: 1.5;
   }
+  
 `
 
 const ContactContainer = styled.div`
   display: flex;
-  margin-top: 5rem;
+  margin-top: 5.5rem;
 
   @media screen and (max-width: 768px) {
     margin-top: 4rem;
@@ -109,14 +123,14 @@ const ContactContainer = styled.div`
 `
 
 const HeroContact = styled.div`
-  font-size: clamp(1rem, 6vw, 1.2rem);
+  font-size: clamp(1rem, 6vw, 1.4rem);
   letter-spacing: 3px;
   line-height: 1.8;
   padding: 0 1rem;
 `
 
 const HeroEmail = styled.a`
-  font-size: clamp(1rem, 6vw, 1.2rem);
+  font-size: clamp(1rem, 6vw, 1.4rem);
   letter-spacing: 3px;
   line-height: 1.8;
   position: relative;
