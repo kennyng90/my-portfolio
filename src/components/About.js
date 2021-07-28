@@ -15,6 +15,7 @@ const About = () => {
           }
           profile {
             gatsbyImageData(placeholder: BLURRED, formats: JPG)
+            description
           }
         }
       }
@@ -55,8 +56,11 @@ const AboutContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 100vh;
+  min-height: 100%;
   padding: 0 1rem;
+  position: relative;
+  height: 100vh;
+
 `
 
 const AboutWrapper = styled.div`
@@ -65,7 +69,7 @@ const AboutWrapper = styled.div`
   grid-template-columns: 1fr 1fr;
   padding: 0rem calc((100vw - 1300px) / 2);
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     grid-template-columns: 1fr;
   }
 `
@@ -74,13 +78,10 @@ const AboutColumnOne = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   width: 800px;
+  max-height: 100%;
   padding: 0 1rem;
 
-  @media screen and (max-width: 1100px) {
-    max-width: 550px;
-  }
-
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 768px) {
     max-width: 360px;
   }
 
@@ -101,7 +102,7 @@ const AboutDescription = styled.div`
   margin-top: 5rem;
   white-space: pre-wrap;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     line-height: 1.5;
     margin-top: 4rem;
     margin-bottom: 4rem;
@@ -111,7 +112,7 @@ const AboutDescription = styled.div`
 const AboutColumnTwo = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  align-items: center;
+  align-items: end;
   justify-items: end;
 
   @media screen and (max-width: 768px) {
@@ -127,7 +128,7 @@ const Images = styled(GatsbyImage)`
     border-radius: 20%;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 450px) {
     width: 80%;
   }
 `

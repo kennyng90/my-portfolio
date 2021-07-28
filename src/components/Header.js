@@ -91,16 +91,20 @@ export default Header
 const Nav = styled.nav`
   height: 80px;
   display: flex;
+  overflow: hidden;
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1300px) / 2);
-  background-color: ${({ theme }) => theme.body};
   z-index: 999;
-  position: sticky;
+  position: relative;
   top: 0;
+
+  @media screen and (max-width: 768px) {
+    position: sticky;
+    background-color: ${({ theme }) => theme.body};
+  }
 `
 
 const NavLogo = styled(Link)`
-  color: ${({ theme }) => theme.text};
   display: flex;
   font-weight: bold;
   font-size: 1.5rem;
@@ -112,7 +116,6 @@ const NavLogo = styled(Link)`
 `
 
 const NavLink = styled(Link)`
-  color: ${({ theme }) => theme.text};
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -153,9 +156,9 @@ const NavMenu = styled.div`
 
 const MobileIcon = styled.button`
   display: none;
-  color: ${({ theme }) => theme.text};
   stroke: none;
   border: 0;
+  
 
   @media screen and (max-width: 768px) {
     display: block;
@@ -169,10 +172,10 @@ const MobileIcon = styled.button`
   }
 `
 const Close = styled.svg`
-  color: ${({ theme }) => theme.text};
   height: auto;
   transition: opacity 0.3s ease;
   transform: scale(1);
+  color: ${({ theme }) => theme.text};
 `
 
 const Burger = styled.svg`
@@ -200,7 +203,6 @@ export const SidebarContainer = styled.div`
   height: 100%;
   position: fixed;
   background-color: ${({ theme }) => theme.body};
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;

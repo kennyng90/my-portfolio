@@ -3,8 +3,9 @@ import { useState } from "react"
 import About from "./About"
 import Header from "./Header"
 import Hero from "./Hero"
+import Projects from "./Projects"
 
-const Layout = ({ children }) => {
+const Layout = () => {
   const [isOpen, setIsOpen] = useState(false)
   const toggle = () => {
     setIsOpen(!isOpen)
@@ -15,6 +16,7 @@ const Layout = ({ children }) => {
       <Header isOpen={isOpen} toggle={toggle} />
       <Hero />
       <About />
+      <Projects />
     </>
   )
 }

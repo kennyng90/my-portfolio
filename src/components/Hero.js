@@ -52,14 +52,13 @@ const HeroContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
   padding: 0 1rem;
   position: relative;
   margin-top: -80px;
 `
 const HeroContent = styled.div`
   z-index: 3;
-  height: calc(100vh - 80px);
   max-height: 100%;
   padding: 0rem calc((100vw - 1300px) / 2);
 `
@@ -74,7 +73,7 @@ const HeroItems = styled.div`
   max-width: 800px;
 
   @media screen and (max-width: 768px) {
-   max-width: 300px;
+   max-width: 600px;
   }
 
   @media screen and (max-width: 450px) {
