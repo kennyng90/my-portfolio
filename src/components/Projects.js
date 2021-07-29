@@ -16,107 +16,171 @@ const Projects = () => {
             repositoryUrl
             techList
             projectImg {
-              gatsbyImageData(placeholder: BLURRED, formats: JPG)
+              gatsbyImageData(placeholder: BLURRED)
               title
             }
+          }
+        }
+      }
+      allContentfulContentType(filter: { name: { eq: "Projects" } }) {
+        edges {
+          node {
+            name
           }
         }
       }
     }
   `)
 
+  const title = projectsData.allContentfulContentType.edges[0].node
+
   return (
     <>
-      {projectsData.allContentfulProjects.edges.map((item, index) => (
-        <ProjectContainer node={item} key={index}>
-          <ProjectWrapper>
-            <ProjectColumnOne>
-              <Images
-                key={index}
-                image={item.node.projectImg.gatsbyImageData}
-                alt={item.node.projectImg.title}
-              />
-            </ProjectColumnOne>
-            <ProjectColumnTwo>
-              <ProjectH1>{item.node.name}</ProjectH1>
-              <ProjectDescription>
-                {item.node.description}
-              </ProjectDescription>
-              <TechList>{item.node.techList}</TechList>
-              <IconLinks>
-                <RepositoryUrl
-                  href={item.node.repositoryUrl}
-                  target="blank"
-                  rel="noopener noreferrer"
-                  aria-label="Github"
-                >
-                  <FaGithub />
-                </RepositoryUrl>
-                <ProjectUrl
+      <ProjectsContainer>
+        <ProjectPageTitle>{title.name}</ProjectPageTitle>
+        {projectsData.allContentfulProjects.edges.map((item, index) => (
+          <ProjectsContent node={item} key={index}>
+            <ProjectWrapper>
+              <ProjectColumnOne>
+                <ImageLink
                   href={item.node.projecUrl}
-                  target="blank"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="ExternalLink"
                 >
-                  <FaExternalLinkAlt />
-                </ProjectUrl>
-              </IconLinks>
-            </ProjectColumnTwo>
-          </ProjectWrapper>
-        </ProjectContainer>
-      ))}
+                  <Images
+                    key={index}
+                    image={item.node.projectImg.gatsbyImageData}
+                    alt={item.node.projectImg.title}
+                  />
+                </ImageLink>
+              </ProjectColumnOne>
+              <ProjectColumnTwo>
+                <ProjectH1>{item.node.name}</ProjectH1>
+                <ProjectDescription>{item.node.description}</ProjectDescription>
+                <TechList>{item.node.techList}</TechList>
+                <IconLinks>
+                  <RepositoryUrl
+                    href={item.node.repositoryUrl}
+                    target="blank"
+                    rel="noopener noreferrer"
+                    aria-label="Github"
+                  >
+                    <FaGithub />
+                  </RepositoryUrl>
+                  <ProjectUrl
+                    href={item.node.projecUrl}
+                    target="blank"
+                    rel="noopener noreferrer"
+                    aria-label="ExternalLink"
+                  >
+                    <FaExternalLinkAlt />
+                  </ProjectUrl>
+                </IconLinks>
+              </ProjectColumnTwo>
+            </ProjectWrapper>
+          </ProjectsContent>
+        ))}
+      </ProjectsContainer>
     </>
   )
 }
 
 export default Projects
 
-const ProjectContainer = styled.div`
+const ProjectsContainer = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  flex-direction: column;
   position: relative;
   align-items: center;
-  height: 100%;
+  min-height: 100%;
+  height: 100vh;
   width: 100%;
-  margin: 8rem 0;
-  padding: 0 1rem;
+  padding: 0rem 1rem;
+  margin-top: 200px;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 300px;
+    margin-bottom: 200px;
+  }
 `
+
+const ProjectPageTitle = styled.div`
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  font-weight: bold;
+  padding: 4rem calc((100vw - 1300px) / 2);
+  display: flex;
+  align-self: flex-start;
+  margin-left: 1rem;
+`
+
+const ProjectsContent = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  margin-bottom: 4rem;
+
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+  }
+`
+
 const ProjectWrapper = styled.div`
   max-height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 0rem calc((100vw - 1300px) / 2);
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
   }
 `
 const ProjectColumnOne = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  width: 600px;
   padding: 0 1rem;
+  width: 100%;
+  justify-self: center;
+  z-index: 1;
 
   @media screen and (max-width: 768px) {
-    max-width: 360px;
     margin-bottom: 2rem;
   }
 `
-const Images = styled(GatsbyImage)``
+
+const ImageLink = styled.a`
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+
+  &:hover {
+    opacity: 50%;
+  }
+`
+
+const Images = styled(GatsbyImage)`
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+`
 
 const ProjectColumnTwo = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
+  margin-left: 1rem;
   padding: 0 1rem;
 
   @media screen and (max-width: 768px) {
-    justify-items: start;
+    justify-items: end;
   }
 `
 const ProjectH1 = styled.h1`
   font-size: clamp(1.5rem, 5vw, 2rem);
   font-weight: bold;
+
+  @media screen and (max-width: 768px) {
+    justify-self: left;
+  }
 `
 const ProjectDescription = styled.p`
   font-size: clamp(1rem, 5vw, 1.4rem);
@@ -142,7 +206,7 @@ const ProjectUrl = styled.a`
   font-size: 24px;
   margin-left: 1.5rem;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 950px) {
     margin-left: 0;
     margin-right: 1.5rem;
   }
@@ -151,7 +215,7 @@ const RepositoryUrl = styled.a`
   font-size: 24px;
   margin-left: 1.5rem;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 950px) {
     margin-left: 0;
     margin-right: 1.5rem;
   }
