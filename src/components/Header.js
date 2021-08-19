@@ -1,17 +1,19 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled, { ThemeProvider } from "styled-components"
 import { Link } from "gatsby"
 import { useDarkMode } from "./useDarkMode"
 import { GlobalStyles } from "./globalStyles"
 import { lightTheme, darkTheme } from "./Themes"
 import { menuData } from "../data/MenuData"
-import { animateScroll as scroll } from "react-scroll"
+import { IoMdMenu, IoMdClose } from "react-icons/io"
+import { Link as LinkS, animateScroll as scroll } from "react-scroll"
 
 import Toggle from "./Toggler"
 
 const Header = ({ toggle, isOpen }) => {
   const [theme, themeToggler, mountedComponent] = useDarkMode()
   const [click, setClick] = useState(false)
+  const [scrollNav, setScrollNav] = useState(false)
 
   const handleClick = () => setClick(!click)
 
@@ -20,6 +22,15 @@ const Header = ({ toggle, isOpen }) => {
   const toggleHome = () => {
     scroll.scrollToTop()
   }
+
+  const toggleFunc = () => {
+    handleClick()
+    toggle()
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", setScrollNav)
+  }, [])
 
   if (!mountedComponent) return <div />
 
@@ -33,36 +44,27 @@ const Header = ({ toggle, isOpen }) => {
           </NavLogo>
           <NavMenu>
             {menuData.map((item, index) => (
-              <NavLink to={item.link} key={index}>
+              <NavLink
+                to={item.link}
+                key={index}
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact="true"
+                offset={-20}
+                scrollNav={scrollNav}
+              >
                 {item.title}
               </NavLink>
             ))}
             <Toggle theme={theme} toggleTheme={themeToggler} />
           </NavMenu>
 
-          <MobileIcon onClick={handleClick}>
+          <MobileIcon>
             {click ? (
-              <Close
-                onClick={toggle}
-                xmlns="http://www.w3.org/2000/svg"
-                width="38"
-                height="38"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" />
-              </Close>
+              <IoMdClose onClick={toggleFunc} />
             ) : (
-              <Burger
-                onClick={toggle}
-                xmlns="http://www.w3.org/2000/svg"
-                width="38"
-                height="38"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" />
-              </Burger>
+              <IoMdMenu onClick={toggleFunc} />
             )}
           </MobileIcon>
         </Nav>
@@ -71,12 +73,20 @@ const Header = ({ toggle, isOpen }) => {
             <SidebarWrapper>
               <SidebarMenu>
                 {menuData.map((item, index) => (
-                  <SidebarLinks to={item.link} key={index}>
+                  <SidebarLinks
+                    to={item.link}
+                    key={index}
+                    smooth={true}
+                    duration={500}
+                    spy={true}
+                    exact="true"
+                    offset={-80}
+                    onClick={toggleFunc}
+                  >
                     {item.title}
                   </SidebarLinks>
                 ))}
-              <Toggle theme={theme} toggleTheme={themeToggler} />
-
+                <Toggle theme={theme} toggleTheme={themeToggler} />
               </SidebarMenu>
             </SidebarWrapper>
           </SidebarContainer>
@@ -113,9 +123,10 @@ const NavLogo = styled(Link)`
   padding: 0 2rem;
   height: 100%;
   cursor: pointer;
+  background-color: transparent;
 `
 
-const NavLink = styled(Link)`
+const NavLink = styled(LinkS)`
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -154,40 +165,28 @@ const NavMenu = styled.div`
   }
 `
 
-const MobileIcon = styled.button`
+const MobileIcon = styled.div`
   display: none;
-  stroke: none;
-  border: 0;
-  
 
   @media screen and (max-width: 768px) {
+    stroke: none;
+    border: 0;
     display: block;
+    height: 30px;
     position: absolute;
     background: transparent;
+    color: ${({ theme }) => theme.text};
     top: 0;
     right: 0;
-    transform: translate(-60%, 60%);
+    transform: translate(-60%, 80%);
     font-size: 1.8rem;
     cursor: pointer;
   }
 `
-const Close = styled.svg`
-  height: auto;
-  transition: opacity 0.3s ease;
-  transform: scale(1);
-  color: ${({ theme }) => theme.text};
-`
-
-const Burger = styled.svg`
-  color: ${({ theme }) => theme.text};
-  height: auto;
-  transition: opacity 0.3s ease;
-  transform: scale(1);
-`
 
 //Mobile menu
 
-export const SidebarView = styled.aside`
+const SidebarView = styled.aside`
   display: none;
   position: relative;
   overflow: hidden;
@@ -198,7 +197,7 @@ export const SidebarView = styled.aside`
     display: block;
   }
 `
-export const SidebarContainer = styled.div`
+const SidebarContainer = styled.div`
   width: 100%;
   height: 100%;
   position: fixed;
@@ -211,7 +210,7 @@ export const SidebarContainer = styled.div`
   left: ${({ isOpen }) => (isOpen ? "0%" : "100%")};
 `
 
-export const SidebarWrapper = styled.div`
+const SidebarWrapper = styled.div`
   padding: 0 2rem;
   width: 100%;
   height: 100%;
@@ -219,7 +218,7 @@ export const SidebarWrapper = styled.div`
   flex-direction: column;
 `
 
-export const SidebarMenu = styled.ul`
+const SidebarMenu = styled.ul`
   height: 80vh;
   display: flex;
   flex-direction: column;
@@ -227,15 +226,15 @@ export const SidebarMenu = styled.ul`
   justify-content: center;
 `
 
-export const SidebarLinks = styled(Link)`
+const SidebarLinks = styled(LinkS)`
   color: ${({ theme }) => theme.text};
   display: inline-block;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   padding-bottom: 50px;
-  text-transform: uppercase;
   position: relative;
   cursor: pointer;
   text-decoration: none;
+  background-color: transparent;
 
   &:after {
     content: "";
@@ -243,7 +242,6 @@ export const SidebarLinks = styled(Link)`
     transform: scaleX(0);
     height: 2px;
     width: 100%;
-
     bottom: 40px;
     left: 0;
     background-color: ${({ theme }) => theme.text};

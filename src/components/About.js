@@ -20,7 +20,6 @@ const About = () => {
         }
       }
     }
-    
   `)
 
   const image = aboutData.allContentfulPortfolio.nodes[0]
@@ -28,21 +27,21 @@ const About = () => {
   const aboutContentful = aboutData.allContentfulPortfolio.nodes[0]
 
   return (
-    <AboutContainer>
+    <AboutContainer id="about">
       <AboutH1>{aboutContentful.aboutTitle}</AboutH1>
       <AboutWrapper>
         <AboutColumnOne>
           <AboutDescription>
-          {documentToReactComponents(
-                JSON.parse(aboutContentful.aboutDesc.raw)
-              )}
-            </AboutDescription>
+            {documentToReactComponents(
+              JSON.parse(aboutContentful.aboutDesc.raw)
+            )}
+          </AboutDescription>
         </AboutColumnOne>
         <AboutColumnTwo>
-            <Images
-              image={image.profile.gatsbyImageData}
-              alt={image.profile.description}
-            />
+          <Images
+            image={image.profile.gatsbyImageData}
+            alt={image.profile.description}
+          />
         </AboutColumnTwo>
       </AboutWrapper>
     </AboutContainer>
@@ -71,7 +70,6 @@ const AboutH1 = styled.div`
   padding: 0rem calc((100vw - 1300px) / 2);
   margin: 0 1rem;
 `
-
 
 const AboutWrapper = styled.div`
   max-height: 100%;
@@ -105,7 +103,7 @@ const AboutDescription = styled.div`
   white-space: pre-wrap;
 
   @media screen and (max-width: 768px) {
-    font-size: clamp(1rem, 6vw, 1.3rem);
+    font-size: clamp(1rem, 6vw, 1rem);
   }
 `
 
@@ -135,5 +133,4 @@ const Images = styled(GatsbyImage)`
   &:hover {
     border-radius: 20%;
   }
-
 `

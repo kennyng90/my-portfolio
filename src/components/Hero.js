@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
-
 const Hero = () => {
   const heroData = useStaticQuery(graphql`
     query HeroQuery {
@@ -35,7 +34,11 @@ const Hero = () => {
             </HeroDesc>
             <ContactContainer>
               <HeroContact>{heroContentful.contact}</HeroContact>
-              <HeroEmail href={"mailto:" + heroContentful.email} target="_blank" rel="noopener noreferrer">
+              <HeroEmail
+                href={"mailto:" + heroContentful.email}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {heroContentful.email}
               </HeroEmail>
             </ContactContainer>
@@ -71,18 +74,10 @@ const HeroItems = styled.div`
   max-height: 100%;
   padding: 0;
   max-width: 800px;
-
-  @media screen and (max-width: 768px) {
-   max-width: 600px;
-  }
-
-  @media screen and (max-width: 400px) {
-    max-width: 320px;
-  }
 `
 
 const HeroTitle = styled.div`
-  font-size: clamp(1.5rem, 6vw, 2.5rem);
+  font-size: clamp(1.2rem, 6vw, 2.2rem);
   letter-spacing: 3px;
   line-height: 1.8;
   padding: 0 1rem;
@@ -94,7 +89,7 @@ const HeroTitle = styled.div`
 `
 
 const HeroDesc = styled.div`
-  font-size: clamp(1.5rem, 6vw, 2.5rem);
+  font-size: clamp(1.2rem, 6vw, 2.2rem);
   margin-top: 5.5rem;
   letter-spacing: 3px;
   line-height: 1.8;
@@ -104,7 +99,6 @@ const HeroDesc = styled.div`
     margin-top: 4rem;
     line-height: 1.5;
   }
-  
 `
 
 const ContactContainer = styled.div`
@@ -118,14 +112,14 @@ const ContactContainer = styled.div`
 `
 
 const HeroContact = styled.div`
-  font-size: clamp(1rem, 6vw, 1.4rem);
+  font-size: clamp(1rem, 6vw, 1.2rem);
   letter-spacing: 3px;
   line-height: 1.8;
   padding: 0 1rem;
 `
 
 const HeroEmail = styled.a`
-  font-size: clamp(1rem, 6vw, 1.4rem);
+  font-size: clamp(1rem, 6vw, 1.2rem);
   letter-spacing: 3px;
   line-height: 1.8;
   position: relative;
@@ -148,7 +142,7 @@ const HeroEmail = styled.a`
 
     @media screen and (max-width: 768px) {
       background-color: transparent;
-  }
+    }
   }
 
   &:hover:after {
@@ -163,8 +157,8 @@ const HeroEmail = styled.a`
     padding: 0 1rem;
     text-decoration: underline;
 
-    &:hover{
-      color:  ${({ theme }) => (theme ? "#7f7f7f" : "#293349")};
+    &:hover {
+      color: ${({ theme }) => (theme ? "#7f7f7f" : "#293349")};
     }
   }
 `

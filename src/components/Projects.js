@@ -36,7 +36,7 @@ const Projects = () => {
 
   return (
     <>
-      <ProjectsContainer>
+      <ProjectsContainer id="projects">
         <ProjectPageTitle>{title.name}</ProjectPageTitle>
         {projectsData.allContentfulProjects.edges.map((item, index) => (
           <ProjectsContent node={item} key={index}>
@@ -93,41 +93,44 @@ const ProjectsContainer = styled.div`
   flex-direction: column;
   position: relative;
   align-items: center;
-  min-height: 100%;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   padding: 0rem 1rem;
-  margin-top: 200px;
+  margin-top: 100px;
 
   @media screen and (max-width: 768px) {
-    margin-top: 300px;
-    margin-bottom: 250px;
+    margin-top: 100px;
   }
 `
 
 const ProjectPageTitle = styled.div`
   font-size: clamp(1.5rem, 6vw, 2rem);
   font-weight: bold;
-  padding: 4rem calc((100vw - 1300px) / 2);
+  padding: 2rem calc((100vw - 1300px) / 2);
   display: flex;
   align-self: flex-start;
   margin-left: 1rem;
+
+  @media screen and (max-width: 768px) {
+    padding: 1rem calc((100vw - 1300px) / 2);
+  }
 `
 
 const ProjectsContent = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 100vh;
-  margin-bottom: 4rem;
+  height: 400px;
+  margin-bottom: 2rem;
 
   @media screen and (max-width: 768px) {
     justify-content: center;
+    height: 500px;
+    margin-bottom: 2rem;
   }
 `
 
 const ProjectWrapper = styled.div`
-  max-height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 0rem calc((100vw - 1300px) / 2);
@@ -192,6 +195,7 @@ const ProjectDescription = styled.p`
     line-height: 1.5;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
+    font-size: clamp(1rem, 5vw, 1rem);
   }
 `
 
