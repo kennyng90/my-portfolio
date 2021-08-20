@@ -8,9 +8,6 @@
     "@contentful/gatsby-transformer-contentful-richtext": "^13.1.0",
     "@contentful/rich-text-react-renderer": "^15.0.0",
     "@contentful/rich-text-types": "^15.0.0",
-    "@mdx-js/mdx": "^1.6.22",
-    "@mdx-js/react": "^1.6.22",
-    "axios": "^0.21.1",
     "dotenv": "^10.0.0",
     "formik": "^2.2.9",
     "gatsby": "^3.9.1",
@@ -44,7 +41,7 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "build": "echo SITE_RECAPTCHA_KEY=$SITE_RECAPTCHA_KEY >> .env && gatsby build",
+    "build": "echo SITE_RECAPTCHA_KEY=$SITE_RECAPTCHA_KEY >> .env.production && gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
