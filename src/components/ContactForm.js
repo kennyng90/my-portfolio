@@ -4,6 +4,8 @@ import Recaptcha from "react-google-recaptcha"
 import * as Yup from "yup"
 import styled from "styled-components"
 
+const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY
+
 const ContactForm = ({
   setFieldValue,
   isSubmitting,
@@ -61,7 +63,7 @@ const ContactForm = ({
       <InputField>
         <FastField
           component={Recaptcha}
-          sitekey={process.env.SITE_RECAPTCHA_KEY}
+          sitekey={RECAPTCHA_KEY}
           name="recaptcha"
           onChange={value => setFieldValue("recaptcha", value)}
         />
