@@ -1,12 +1,15 @@
-require("dotenv").config()
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 const { ACCESS_TOKEN, SPACE_ID } = process.env
 
 module.exports = {
   siteMetadata: {
     title: `Kenny's Portfolio`,
     description: `Kenny's portfolio developed with Gatsby and Contentful.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    author: `Kenny Nguyen`,
+    siteUrl: `https://kennynguyen.netlify.app/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
