@@ -5,6 +5,7 @@ import Footer from "./Footer"
 import Header from "./Header"
 import Hero from "./Hero"
 import Projects from "./Projects"
+import Contact from "./Contact"
 
 const Layout = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -18,6 +19,7 @@ const Layout = () => {
       <Hero />
       <About />
       <Projects />
+      <Contact />
       <Footer />
     </>
   )

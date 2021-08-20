@@ -57,13 +57,6 @@ const Header = ({ toggle, isOpen }) => {
                 {item.title}
               </NavLink>
             ))}
-            <NavA
-              href="mailto:kennamngu@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Contact
-            </NavA>
             <NavA href="resume.pdf" target="_blank" rel="noopener noreferrer">
               Resume
             </NavA>
@@ -96,13 +89,6 @@ const Header = ({ toggle, isOpen }) => {
                     {item.title}
                   </SidebarLinks>
                 ))}
-                <SideA
-                  href="mailto:kennamngu@gmail.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Contact
-                </SideA>
                 <SideA
                   href="resume.pdf"
                   target="_blank"
