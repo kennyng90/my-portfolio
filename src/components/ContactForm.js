@@ -2,7 +2,6 @@ import React from "react"
 import { Form, withFormik, FastField, ErrorMessage } from "formik"
 import Recaptcha from "react-google-recaptcha"
 import * as Yup from "yup"
-import { recaptcha_key } from "../data/config"
 import styled from "styled-components"
 
 const ContactForm = ({
@@ -13,7 +12,7 @@ const ContactForm = ({
   touched,
 }) => (
   <Form
-    name="portfolio-dev"
+    name="Portfolio"
     method="post"
     data-netlify="true"
     data-netlify-recaptcha="true"
@@ -120,7 +119,7 @@ export default withFormik({
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
-          "form-name": "portfolio-dev",
+          "form-name": "Portfolio",
           name,
           email,
           message,
