@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "kennyn-portfolio",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A clean and minimalistic portfolio",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Kenny Nguyen <kennamngu@gmail.com>",
   "dependencies": {
     "@contentful/gatsby-transformer-contentful-richtext": "^13.1.0",
     "@contentful/rich-text-react-renderer": "^15.0.0",

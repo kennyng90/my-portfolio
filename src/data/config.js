@@ -1,3 +1,3 @@
 module.exports = {
-  url: "https://kennynguyen.netlify.app",
+  url: "https://kennyn.vercel.app",
 }
