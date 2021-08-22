@@ -73,7 +73,7 @@ const Wrapper = styled.div`
   align-content: center;
   justify-content: center;
 
-  @media (max-width: 960px) {
+  @media (max-width: 768px) {
     flex-direction: column;
     width: 400px;
   }
@@ -83,7 +83,7 @@ const Details = styled.div`
   flex: 1;
   padding-right: 2rem;
 
-  @media (max-width: 960px) {
+  @media (max-width: 768px) {
     padding-right: unset;
     width: 80%;
     order: 1;
