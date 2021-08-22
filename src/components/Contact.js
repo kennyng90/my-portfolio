@@ -4,20 +4,26 @@ import styled from "styled-components"
 
 const Contact = () => {
   return (
-    <Wrapper as={Container} id="contact">
-      <Details>
-        <ContactForm />
-      </Details>
-    </Wrapper>
+    <Container>
+      <ContactH1 id="contact">Get In Touch</ContactH1>
+      <ContactP>Got a question or just want to say hi?</ContactP>
+      <Wrapper>
+        <Details>
+          <ContactForm />
+        </Details>
+      </Wrapper>
+    </Container>
   )
 }
 
 export default Contact
 
 export const Container = styled.div`
-  max-width: 1280px;
-  margin: 0 auto;
-  width: 90%;
+  width: 100%;
+  margin: 4rem auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
   @media (min-width: 601px) {
     width: 90%;
@@ -28,14 +34,48 @@ export const Container = styled.div`
   }
 `
 
-const Wrapper = styled.div`
-  padding: 4rem 0;
+const ContactH1 = styled.h1`
+  width: 600px;
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  font-weight: bold;
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  text-align: left;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-left: 4rem;
+  }
+`
+
+const ContactP = styled.p`
+  width: 600px;
+  font-size: clamp(1rem, 6vw, 1.2rem);
+  font-weight: bold;
+  display: flex;
+  text-align: left;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-left: 4rem;
+  }
+`
+
+const Wrapper = styled.div`
+  width: 600px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 
   @media (max-width: 960px) {
     flex-direction: column;
+    width: 400px;
   }
 `
 
@@ -45,7 +85,7 @@ const Details = styled.div`
 
   @media (max-width: 960px) {
     padding-right: unset;
-    width: 100%;
+    width: 80%;
     order: 1;
   }
 

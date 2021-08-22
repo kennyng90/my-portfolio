@@ -16,7 +16,7 @@ const ContactForm = () => (
       success: false,
     }}
     validationSchema={Yup.object().shape({
-      name: Yup.string().required("Full name field is required"),
+      name: Yup.string().required("Name field is required"),
       email: Yup.string()
         .email("Invalid email")
         .required("Email field is required"),
@@ -65,7 +65,7 @@ const ContactForm = () => (
             name="name"
             component="input"
             aria-label="name"
-            placeholder="Full name*"
+            placeholder="Name*"
             error={touched.name && errors.name}
           />
           <ErrorMessage component={Error} name="name" />
@@ -133,7 +133,7 @@ export default ContactForm
 export const Input = styled.input`
   width: 100%;
   box-sizing: border-box;
-  border: 2px solid #6c63ff;
+  border: 1px solid #111827;
   padding: 0.8rem 1rem;
   border-radius: 7px;
   margin-bottom: 0.5rem;
@@ -162,8 +162,6 @@ export const Button = styled.button`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  color: #fff;
-  background: #0074d9;
 
   &:focus {
     outline: none;
@@ -172,12 +170,6 @@ export const Button = styled.button`
   &:disabled {
     background: gray;
   }
-
-  ${({ secondary }) =>
-    secondary &&
-    `
-		background: #001F3F;
-	`}
 `
 
 export const Error = styled.span`

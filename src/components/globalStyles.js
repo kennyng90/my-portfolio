@@ -18,4 +18,9 @@ export const GlobalStyles = createGlobalStyle`
   a::after{
     background-color: ${({ theme }) => theme.text};
   }
+
+  button{
+    background-color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.body};
+  }
   `

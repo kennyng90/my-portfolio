@@ -1,10 +1,26 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 const About = () => {
+  const [mobile, setMobile] = useState(false)
+
+  const mobileView = () => {
+    if (window.innerWidth <= 768) {
+      setMobile(true)
+    } else {
+      setMobile(false)
+    }
+  }
+
+  useEffect(() => {
+    mobileView()
+  }, [])
+
+  window.addEventListener("resize", mobileView)
+
   const aboutData = useStaticQuery(graphql`
     query aboutQuery {
       allContentfulPortfolio {
@@ -30,19 +46,39 @@ const About = () => {
     <AboutContainer id="about">
       <AboutH1>{aboutContentful.aboutTitle}</AboutH1>
       <AboutWrapper>
-        <AboutColumnOne>
-          <AboutDescription>
-            {documentToReactComponents(
-              JSON.parse(aboutContentful.aboutDesc.raw)
-            )}
-          </AboutDescription>
-        </AboutColumnOne>
-        <AboutColumnTwo>
-          <Images
-            image={image.profile.gatsbyImageData}
-            alt={image.profile.description}
-          />
-        </AboutColumnTwo>
+        {mobile ? (
+          <>
+            <AboutColumnTwo>
+              <Images
+                image={image.profile.gatsbyImageData}
+                alt={image.profile.description}
+              />
+            </AboutColumnTwo>
+            <AboutColumnOne>
+              <AboutDescription>
+                {documentToReactComponents(
+                  JSON.parse(aboutContentful.aboutDesc.raw)
+                )}
+              </AboutDescription>
+            </AboutColumnOne>
+          </>
+        ) : (
+          <>
+            <AboutColumnOne>
+              <AboutDescription>
+                {documentToReactComponents(
+                  JSON.parse(aboutContentful.aboutDesc.raw)
+                )}
+              </AboutDescription>
+            </AboutColumnOne>
+            <AboutColumnTwo>
+              <Images
+                image={image.profile.gatsbyImageData}
+                alt={image.profile.description}
+              />
+            </AboutColumnTwo>
+          </>
+        )}
       </AboutWrapper>
     </AboutContainer>
   )
@@ -69,6 +105,7 @@ const AboutH1 = styled.div`
   align-self: flex-start;
   padding: 0rem calc((100vw - 1300px) / 2);
   margin: 0 1rem;
+  margin-top: 2rem;
 `
 
 const AboutWrapper = styled.div`
@@ -99,7 +136,7 @@ const AboutDescription = styled.div`
   font-size: clamp(1rem, 6vw, 1.5rem);
   letter-spacing: 3px;
   line-height: 1.8;
-  margin-top: 5rem;
+  margin-top: 3rem;
   white-space: pre-wrap;
 
   @media screen and (max-width: 768px) {
@@ -115,15 +152,12 @@ const AboutColumnTwo = styled.div`
   width: 100%;
   justify-items: end;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 768px) {
     justify-items: center;
     margin-top: 4rem;
-  }
-
-  /* @media screen and (max-width: 768px) {
     width: 80%;
-    align-self: center;
-  } */
+    margin-left: 2rem;
+  }
 `
 
 const Images = styled(GatsbyImage)`

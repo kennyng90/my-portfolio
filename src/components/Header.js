@@ -243,7 +243,7 @@ const SidebarView = styled.aside`
 `
 const SidebarContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: fixed;
   background-color: ${({ theme }) => theme.body};
   display: flex;
@@ -260,14 +260,17 @@ const SidebarWrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
 const SidebarMenu = styled.ul`
-  height: 80vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: 6rem;
 `
 
 const SidebarLinks = styled(LinkS)`
