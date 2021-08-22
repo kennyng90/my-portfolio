@@ -19,7 +19,9 @@ const About = () => {
     mobileView()
   }, [])
 
-  window.addEventListener("resize", mobileView)
+  if (typeof window !== "undefined") {
+    window.addEventListener("resize", mobileView)
+  }
 
   const aboutData = useStaticQuery(graphql`
     query aboutQuery {
