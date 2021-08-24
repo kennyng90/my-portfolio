@@ -270,7 +270,7 @@ const SidebarMenu = styled.ul`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  margin-top: 7rem;
+  margin-top: 4rem;
 `
 
 const SidebarLinks = styled(LinkS)`
