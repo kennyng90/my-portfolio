@@ -30,17 +30,31 @@ const Tech = () => {
   return (
     <TechContainer id="tech">
       <Heading>Technologies i've working with recently</Heading>
-      <IconWrapper>
+      {/* <IconWrapper>
         <SiReact style={{ height: 40, width: 40 }} />
         <SiRedux style={{ height: 40, width: 40 }} />
         <FiFigma style={{ height: 40, width: 40 }} />
         <SiGraphql style={{ height: 40, width: 40 }} />
-      </IconWrapper>
+      </IconWrapper> */}
 
       <Wrapper>
         {techData.allContentfulTech.edges.map((item, index) => {
           return (
             <TechBox key={index}>
+              {item.node.categoryTitle === "Front-End" && (
+                <SiReact style={{ height: 40, width: 40, marginBottom: 20 }} />
+              )}
+              {item.node.categoryTitle === "Back-End" && (
+                <SiRedux style={{ height: 40, width: 40, marginBottom: 20 }} />
+              )}
+              {item.node.categoryTitle === "Design" && (
+                <FiFigma style={{ height: 40, width: 40, marginBottom: 20 }} />
+              )}
+              {item.node.categoryTitle === "Other" && (
+                <SiGraphql
+                  style={{ height: 40, width: 40, marginBottom: 20 }}
+                />
+              )}
               <Title>{item.node.categoryTitle}</Title>
               <ListContainer>
                 <List>
@@ -87,22 +101,6 @@ const Heading = styled.h1`
   margin-bottom: 2rem;
   padding: 0 2rem;
 `
-const IconWrapper = styled.div`
-  width: 100%;
-  padding: 1rem 2rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 70px;
-
-  @media screen and (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    position: absolute;
-    height: 100%;
-    margin-top: 100px;
-    grid-row-gap: 5px;
-    padding: 2rem;
-  }
-`
 
 const Wrapper = styled.div`
   display: grid;
@@ -111,8 +109,6 @@ const Wrapper = styled.div`
 
   @media screen and (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
-    margin-top: 40px;
-    grid-row-gap: 50px;
   }
 `
 const TechBox = styled.div`
