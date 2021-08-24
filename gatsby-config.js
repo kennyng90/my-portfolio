@@ -14,6 +14,7 @@ module.exports = {
     siteUrl: `https://kennyn.vercel.app`,
   },
   plugins: [
+    `gatsby-transformer-inline-svg`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     "gatsby-plugin-styled-components",

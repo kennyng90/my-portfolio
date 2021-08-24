@@ -25,18 +25,18 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
 
-  @media (min-width: 601px) {
+  /* @media (min-width: 601px) {
     width: 90%;
   }
 
   @media (min-width: 993px) {
     width: 80%;
-  }
+  } */
 `
 
 const ContactH1 = styled.h1`
   width: 600px;
-  font-size: clamp(1.5rem, 6vw, 2rem);
+  font-size: 2rem;
   font-weight: bold;
   display: flex;
   text-align: left;
@@ -45,14 +45,13 @@ const ContactH1 = styled.h1`
   margin-bottom: 1rem;
 
   @media (max-width: 768px) {
-    width: 100%;
-    margin-left: 4rem;
+    width: 80%;
   }
 `
 
 const ContactP = styled.p`
   width: 600px;
-  font-size: clamp(1rem, 6vw, 1.2rem);
+  font-size: 1.2rem;
   font-weight: bold;
   display: flex;
   text-align: left;
@@ -61,8 +60,7 @@ const ContactP = styled.p`
   margin-bottom: 2rem;
 
   @media (max-width: 768px) {
-    width: 100%;
-    margin-left: 4rem;
+    width: 80%;
   }
 `
 
@@ -75,7 +73,7 @@ const Wrapper = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    width: 400px;
+    width: 100%;
   }
 `
 

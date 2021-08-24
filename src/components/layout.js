@@ -6,6 +6,7 @@ import Header from "./Header"
 import Hero from "./Hero"
 import Projects from "./Projects"
 import Contact from "./Contact"
+import Tech from "./Tech"
 
 const Layout = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -18,6 +19,7 @@ const Layout = () => {
       <Header isOpen={isOpen} toggle={toggle} />
       <Hero />
       <About />
+      <Tech />
       <Projects />
       <Contact />
       <Footer />
