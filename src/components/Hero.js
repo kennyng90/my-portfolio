@@ -1,9 +1,13 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { Link as LinkS } from "react-scroll"
+import { lightTheme, darkTheme } from "./Themes"
 
-const Hero = () => {
+import styled, { ThemeProvider } from "styled-components"
+import { string } from "prop-types"
+
+const Hero = ({ theme }) => {
   const heroData = useStaticQuery(graphql`
     query HeroQuery {
       allContentfulPortfolio {
@@ -11,13 +15,12 @@ const Hero = () => {
           heroDescription {
             raw
           }
-          heroTitle
-          contact
-          email
         }
       }
     }
   `)
+
+  const themeMode = theme === "light" ? lightTheme : darkTheme
 
   const heroContentful = heroData.allContentfulPortfolio.nodes[0]
 
@@ -26,27 +29,31 @@ const Hero = () => {
       <HeroContainer>
         <HeroContent>
           <HeroItems>
-            <HeroTitle>{heroContentful.heroTitle}</HeroTitle>
             <HeroDesc>
               {documentToReactComponents(
                 JSON.parse(heroContentful.heroDescription.raw)
               )}
             </HeroDesc>
-            <ContactContainer>
-              <HeroContact>{heroContentful.contact}</HeroContact>
-              <HeroEmail
-                href={"mailto:" + heroContentful.email}
-                target="_blank"
-                rel="noopener noreferrer"
+            <ThemeProvider theme={themeMode}>
+              <Link
+                to="contact"
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact="true"
               >
-                {heroContentful.email}
-              </HeroEmail>
-            </ContactContainer>
+                Get In Touch
+              </Link>
+            </ThemeProvider>
           </HeroItems>
         </HeroContent>
       </HeroContainer>
     </>
   )
+}
+
+Hero.propTypes = {
+  theme: string.isRequired,
 }
 
 export default Hero
@@ -80,89 +87,38 @@ const HeroItems = styled.div`
   max-width: 800px;
 `
 
-const HeroTitle = styled.div`
-  font-size: clamp(1.2rem, 6vw, 2.2rem);
-  letter-spacing: 3px;
-  line-height: 1.8;
-  padding: 0 1rem;
-
-  @media screen and (max-width: 768px) {
-    margin-bottom: 0rem;
-    margin-top: 1.5rem;
-  }
-`
-
 const HeroDesc = styled.div`
-  font-size: clamp(1.2rem, 6vw, 2.2rem);
+  font-size: clamp(2rem, 6vw, 3rem);
   margin-top: 5.5rem;
   letter-spacing: 3px;
   line-height: 1.8;
   padding: 0 1rem;
+  width: 700px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 700px) {
     margin-top: 4rem;
     line-height: 1.5;
+    width: 90%;
   }
 `
-
-const ContactContainer = styled.div`
-  display: flex;
-  margin-top: 5.5rem;
-
-  @media screen and (max-width: 768px) {
-    margin-top: 4rem;
-    flex-direction: column;
-  }
-`
-
-const HeroContact = styled.div`
-  font-size: clamp(1rem, 6vw, 1.2rem);
-  letter-spacing: 3px;
-  line-height: 1.8;
-  padding: 0 1rem;
-`
-
-const HeroEmail = styled.a`
-  font-size: clamp(1rem, 6vw, 1.2rem);
-  letter-spacing: 3px;
-  line-height: 1.8;
-  position: relative;
-  text-decoration: none;
-  display: inline-block;
-
+const Link = styled(LinkS)`
+  text-align: center;
+  padding: 1rem 2rem;
+  width: 12rem;
+  margin: 4rem 1rem;
   cursor: pointer;
+  font-size: 1.4rem;
+  border-radius: 6px;
+  border: 2px solid currentColor;
 
-  &:after {
-    content: "";
-    position: absolute;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: ${({ theme }) => theme.body};
-    transform-origin: bottom right;
-    transition-property: width;
-    transition: transform 0.25s ease-out;
-
-    @media screen and (max-width: 768px) {
-      background-color: transparent;
-    }
+  &:hover {
+    background-color: #2d3748;
+    color: #f9fafb;
   }
 
-  &:hover:after {
-    color: ${({ theme }) => theme.text};
-    transition: 0.3s ease-out;
-    transform: scaleX(1);
-    width: 100%;
-    transform-origin: bottom left;
-  }
-
-  @media screen and (max-width: 768px) {
-    padding: 0 1rem;
-    text-decoration: underline;
-
-    &:hover {
-      color: ${({ theme }) => (theme ? "#7f7f7f" : "#293349")};
-    }
+  @media screen and (max-width: 700px) {
+    font-size: 1rem;
+    padding: 1rem 0rem;
+    width: 8rem;
   }
 `

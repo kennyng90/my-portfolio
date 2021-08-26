@@ -23,4 +23,5 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.text};
     color: ${({ theme }) => theme.body};
   }
+
   `

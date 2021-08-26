@@ -24,14 +24,6 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-
-  /* @media (min-width: 601px) {
-    width: 90%;
-  }
-
-  @media (min-width: 993px) {
-    width: 80%;
-  } */
 `
 
 const ContactH1 = styled.h1`

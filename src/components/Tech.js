@@ -30,13 +30,6 @@ const Tech = () => {
   return (
     <TechContainer id="tech">
       <Heading>Technologies i've working with recently</Heading>
-      {/* <IconWrapper>
-        <SiReact style={{ height: 40, width: 40 }} />
-        <SiRedux style={{ height: 40, width: 40 }} />
-        <FiFigma style={{ height: 40, width: 40 }} />
-        <SiGraphql style={{ height: 40, width: 40 }} />
-      </IconWrapper> */}
-
       <Wrapper>
         {techData.allContentfulTech.edges.map((item, index) => {
           return (
