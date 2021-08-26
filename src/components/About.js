@@ -105,7 +105,7 @@ const AboutH1 = styled.div`
   font-weight: bold;
   display: flex;
   align-self: flex-start;
-  padding: 0rem calc((100vw - 1300px) / 2);
+  padding: 0rem calc((100vw - 1100px) / 2);
   margin: 0 1rem;
   margin-top: 2rem;
 `
@@ -114,7 +114,7 @@ const AboutWrapper = styled.div`
   max-height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 0rem calc((100vw - 1300px) / 2);
+  padding: 0rem calc((100vw - 1100px) / 2);
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -125,7 +125,7 @@ const AboutColumnOne = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   max-width: 800px;
-  width: 800px;
+  width: 600px;
   padding: 0 1rem;
   border: 1px sold black;
 
@@ -135,7 +135,7 @@ const AboutColumnOne = styled.div`
 `
 
 const AboutDescription = styled.div`
-  font-size: clamp(1rem, 6vw, 1.5rem);
+  font-size: clamp(1rem, 6vw, 1.2rem);
   letter-spacing: 3px;
   line-height: 1.8;
   margin-top: 3rem;
@@ -165,8 +165,9 @@ const AboutColumnTwo = styled.div`
 const Images = styled(GatsbyImage)`
   border-radius: 50%;
   transition: all 0.4s ease-out;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
   &:hover {
-    border-radius: 20%;
+    border-radius: 2%;
   }
 `

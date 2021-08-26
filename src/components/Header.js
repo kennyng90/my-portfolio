@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import styled, { ThemeProvider } from "styled-components"
 import { Link } from "gatsby"
 import { useDarkMode } from "./useDarkMode"
@@ -13,7 +13,6 @@ import Toggle from "./Toggler"
 const Header = ({ toggle, isOpen }) => {
   const [theme, themeToggler, mountedComponent] = useDarkMode()
   const [click, setClick] = useState(false)
-  const [scrollNav, setScrollNav] = useState(false)
 
   const handleClick = () => setClick(!click)
 
@@ -27,10 +26,6 @@ const Header = ({ toggle, isOpen }) => {
     handleClick()
     toggle()
   }
-
-  useEffect(() => {
-    window.addEventListener("scroll", setScrollNav)
-  }, [])
 
   if (!mountedComponent) return <div />
 
@@ -52,7 +47,6 @@ const Header = ({ toggle, isOpen }) => {
                 spy={true}
                 exact="true"
                 offset={-20}
-                scrollNav={scrollNav}
               >
                 {item.title}
               </NavLink>
@@ -113,7 +107,7 @@ const Nav = styled.nav`
   display: flex;
   overflow: hidden;
   justify-content: space-between;
-  padding: 0.5rem calc((100vw - 1300px) / 2);
+  padding: 0.5rem calc((100vw - 1100px) / 2);
   z-index: 999;
   position: relative;
   top: 0;

@@ -29,7 +29,7 @@ const Tech = () => {
 
   return (
     <TechContainer id="tech">
-      <Heading>Technologies i've working with recently</Heading>
+      <Heading>Technologies I've Working With Recently</Heading>
       <Wrapper>
         {techData.allContentfulTech.edges.map((item, index) => {
           return (
@@ -74,7 +74,7 @@ const TechContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0rem calc((100vw - 1300px) / 2);
+  padding: 0rem calc((100vw - 1100px) / 2);
   margin-top: 8rem;
 
   @media screen and (max-width: 1024px) {
@@ -111,7 +111,7 @@ const TechBox = styled.div`
 `
 
 const Title = styled.h1`
-  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-size: clamp(1.5rem, 6vw, 2rem);
   margin-bottom: 0.5rem;
 
   @media screen and (max-width: 768px) {

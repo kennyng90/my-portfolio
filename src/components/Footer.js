@@ -42,7 +42,7 @@ const Footer = () => {
           <FaGithub />
         </SocialLink>
         <SocialLink
-          href={footerLinks.mail}
+          href={`mailto:${footerLinks.mail}`}
           target="blank"
           rel="noopener noreferrer"
           aria-label="Github"
@@ -69,7 +69,7 @@ const FooterContainer = styled.div`
   height: 100px;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem calc((100vw - 1300px) / 2);
+  padding: 0.5rem calc((100vw - 1100px) / 2);
 
   @media screen and (max-width: 768px) {
   }

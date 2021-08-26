@@ -133,7 +133,7 @@ export default ContactForm
 export const Input = styled.input`
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid #111827;
+  border: 1px solid #1a202c;
   padding: 0.8rem 1rem;
   border-radius: 7px;
   margin-bottom: 0.5rem;
@@ -146,7 +146,7 @@ export const Input = styled.input`
 	`}
 
   &::placeholder {
-    color: #a7a7a7;
+    color: #707070;
   }
 `
 
@@ -169,6 +169,11 @@ export const Button = styled.button`
 
   &:disabled {
     background: gray;
+  }
+
+  &:hover {
+    background-color: #2d3748;
+    color: #f9fafb;
   }
 `
 

@@ -106,13 +106,13 @@ const ProjectsContainer = styled.div`
 const ProjectPageTitle = styled.div`
   font-size: clamp(1.5rem, 6vw, 2rem);
   font-weight: bold;
-  padding: 2rem calc((100vw - 1300px) / 2);
+  padding: 2rem calc((100vw - 1100px) / 2);
   display: flex;
   align-self: flex-start;
   margin-left: 1rem;
 
   @media screen and (max-width: 768px) {
-    padding: 1rem calc((100vw - 1300px) / 2);
+    padding: 1rem calc((100vw - 1100px) / 2);
   }
 `
 
@@ -133,7 +133,7 @@ const ProjectsContent = styled.div`
 const ProjectWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 0rem calc((100vw - 1300px) / 2);
+  padding: 0rem calc((100vw - 1100px) / 2);
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;

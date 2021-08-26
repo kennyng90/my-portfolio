@@ -2,12 +2,9 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { Link as LinkS } from "react-scroll"
-import { lightTheme, darkTheme } from "./Themes"
+import styled from "styled-components"
 
-import styled, { ThemeProvider } from "styled-components"
-import { string } from "prop-types"
-
-const Hero = ({ theme }) => {
+const Hero = () => {
   const heroData = useStaticQuery(graphql`
     query HeroQuery {
       allContentfulPortfolio {
@@ -19,8 +16,6 @@ const Hero = ({ theme }) => {
       }
     }
   `)
-
-  const themeMode = theme === "light" ? lightTheme : darkTheme
 
   const heroContentful = heroData.allContentfulPortfolio.nodes[0]
 
@@ -34,26 +29,20 @@ const Hero = ({ theme }) => {
                 JSON.parse(heroContentful.heroDescription.raw)
               )}
             </HeroDesc>
-            <ThemeProvider theme={themeMode}>
-              <Link
-                to="contact"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-              >
-                Get In Touch
-              </Link>
-            </ThemeProvider>
+            <Link
+              to="contact"
+              smooth={true}
+              duration={500}
+              spy={true}
+              exact="true"
+            >
+              Get In Touch
+            </Link>
           </HeroItems>
         </HeroContent>
       </HeroContainer>
     </>
   )
-}
-
-Hero.propTypes = {
-  theme: string.isRequired,
 }
 
 export default Hero
@@ -74,7 +63,7 @@ const HeroContainer = styled.div`
 const HeroContent = styled.div`
   z-index: 3;
   max-height: 100%;
-  padding: 0rem calc((100vw - 1300px) / 2);
+  padding: 0rem calc((100vw - 1100px) / 2);
 `
 
 const HeroItems = styled.div`
