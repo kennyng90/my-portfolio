@@ -12,15 +12,6 @@ const Tech = () => {
           node {
             categoryTitle
             categoryList
-            categoryImage {
-              file {
-                url
-              }
-              description
-              svg {
-                dataURI
-              }
-            }
           }
         }
       }

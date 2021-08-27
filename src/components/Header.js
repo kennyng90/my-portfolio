@@ -51,7 +51,7 @@ const Header = ({ toggle, isOpen }) => {
                 {item.title}
               </NavLink>
             ))}
-            <NavA href="resume.pdf" target="_blank" rel="noopener noreferrer">
+            <NavA href="/resume.pdf" target="_blank" rel="noopener noreferrer">
               Resume
             </NavA>
             <Toggle theme={theme} toggleTheme={themeToggler} />
@@ -84,7 +84,7 @@ const Header = ({ toggle, isOpen }) => {
                   </SidebarLinks>
                 ))}
                 <SideA
-                  href="resume.pdf"
+                  href="/resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
