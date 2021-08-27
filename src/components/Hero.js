@@ -22,17 +22,15 @@ const Hero = () => {
 
   return (
     <>
-      <HeroContainer>
-        <HeroContent>
-          <HeroItems>
-            <Fade duration={1000} delay={100}>
+      <Fade duration={1000} delay={0}>
+        <HeroContainer>
+          <HeroContent>
+            <HeroItems>
               <HeroDesc>
                 {documentToReactComponents(
                   JSON.parse(heroContentful.heroDescription.raw)
                 )}
               </HeroDesc>
-            </Fade>
-            <Fade duration={1000} delay={400}>
               <Link
                 to="contact"
                 smooth={true}
@@ -42,10 +40,10 @@ const Hero = () => {
               >
                 Get In Touch
               </Link>
-            </Fade>
-          </HeroItems>
-        </HeroContent>
-      </HeroContainer>
+            </HeroItems>
+          </HeroContent>
+        </HeroContainer>
+      </Fade>
     </>
   )
 }

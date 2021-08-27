@@ -11,7 +11,7 @@ module.exports = {
     title: `Kenny's Portfolio`,
     description: `Kenny's portfolio developed with Gatsby and Contentful.`,
     author: `Kenny Nguyen`,
-    siteUrl: `https://kennyn.vercel.app`,
+    siteUrl: `https://kennyn.dev`,
   },
   plugins: [
     `gatsby-transformer-inline-svg`,
