@@ -8,14 +8,14 @@ const { ACCESS_TOKEN, SPACE_ID } = process.env
 
 module.exports = {
   siteMetadata: {
-    title: `Kenny's Portfolio`,
+    title: `KennyN Portfolio`,
     description: `Kenny's portfolio developed with Gatsby and Contentful.`,
     author: `Kenny Nguyen`,
     siteUrl: `https://kennyn.dev`,
   },
   plugins: [
-    `gatsby-transformer-inline-svg`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-inline-svg`,
     `gatsby-plugin-image`,
     "gatsby-plugin-styled-components",
     {

@@ -46,7 +46,7 @@ const About = () => {
   const aboutContentful = aboutData.allContentfulPortfolio.nodes[0]
 
   return (
-    <Fade duration={1000} delay={100}>
+    <Fade duration={1000} delay={50}>
       <AboutContainer id="about">
         <AboutH1>{aboutContentful.aboutTitle}</AboutH1>
         <AboutWrapper>

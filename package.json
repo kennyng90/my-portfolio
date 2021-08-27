@@ -1,7 +1,7 @@
 {
   "name": "kennyn-portfolio",
   "private": true,
-  "description": "A clean and minimalistic portfolio",
+  "description": "A clean portfolio app created with gatsbyjs and contentful",
   "version": "0.1.0",
   "author": "Kenny Nguyen <kennamngu@gmail.com>",
   "dependencies": {

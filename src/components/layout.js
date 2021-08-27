@@ -7,6 +7,7 @@ import Hero from "./Hero"
 import Projects from "./Projects"
 import Contact from "./Contact"
 import Tech from "./Tech"
+import Seo from "./seo"
 
 const Layout = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -16,6 +17,7 @@ const Layout = () => {
 
   return (
     <>
+      <Seo />
       <Header isOpen={isOpen} toggle={toggle} />
       <Hero />
       <About />

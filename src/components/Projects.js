@@ -37,7 +37,7 @@ const Projects = () => {
 
   return (
     <>
-      <Fade duration={1000} delay={100}>
+      <Fade duration={1000} delay={50}>
         <ProjectsContainer id="projects">
           <ProjectPageTitle>{title.name}</ProjectPageTitle>
           {projectsData.allContentfulProjects.edges.map((item, index) => (

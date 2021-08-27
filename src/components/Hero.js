@@ -88,10 +88,18 @@ const HeroDesc = styled.div`
   padding: 0 1rem;
   width: 700px;
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 768px) {
     margin-top: 4rem;
     line-height: 1.5;
     width: 90%;
+  }
+
+  @media screen and (max-width: 545px) {
+    width: 85%;
+  }
+
+  @media screen and (max-width: 420px) {
+    width: 80%;
   }
 `
 const Link = styled(LinkS)`
