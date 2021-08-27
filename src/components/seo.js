@@ -1,66 +1,65 @@
 import * as React from "react"
+
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
+import { useLocation } from "@reach/router"
 import { useStaticQuery, graphql } from "gatsby"
 
-function Seo({ description, lang, meta, title }) {
+// https://www.gatsbyjs.com/docs/add-seo-component/
+
+const Seo = ({ title, description, image }) => {
+  const { pathname } = useLocation()
+
   const { site } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
-            title
-            description
-            author
+            defaultTitle: title
+            defaultDescription: description
+            siteUrl
           }
         }
       }
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  const { defaultTitle, defaultDescription, siteUrl } = site.siteMetadata
+
+  const seo = {
+    title: title || defaultTitle,
+    description: description || defaultDescription,
+    url: `${siteUrl}${pathname}`,
+  }
 
   return (
     <Helmet
-      htmlAttributes={{
-        lang,
-      }}
       title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-      ].concat(meta)}
-    />
+      defaultTitle={seo.title}
+      titleTemplate={`%s | ${defaultTitle}`}
+    >
+      <html lang="en" />
+
+      <meta name="description" content={seo.description} />
+
+      <meta property="og:title" content={seo.title} />
+      <meta property="og:description" content={seo.description} />
+      <meta property="og:url" content={seo.url} />
+      <meta property="og:type" content="website" />
+    </Helmet>
   )
 }
 
-Seo.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-}
+export default Seo
 
 Seo.propTypes = {
+  title: PropTypes.string,
   description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+  image: PropTypes.string,
 }
 
-export default Seo
+Seo.defaultProps = {
+  title: null,
+  description: null,
+  image: null,
+}
