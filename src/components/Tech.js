@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { SiReact, SiJavascript, SiGithub } from "react-icons/si"
 import { FiFigma } from "react-icons/fi"
+import Fade from "react-reveal/Fade"
 import styled from "styled-components"
 
 const Tech = () => {
@@ -19,41 +20,49 @@ const Tech = () => {
   `)
 
   return (
-    <TechContainer id="tech">
-      <Heading>Technologies I've Working With Recently</Heading>
-      <Wrapper>
-        {techData.allContentfulTech.edges.map((item, index) => {
-          return (
-            <TechBox key={index}>
-              {item.node.categoryTitle === "Languages" && (
-                <SiJavascript
-                  style={{ height: 40, width: 40, marginBottom: 20 }}
-                />
-              )}
-              {item.node.categoryTitle === "Frameworks & Libraries" && (
-                <SiReact style={{ height: 40, width: 40, marginBottom: 20 }} />
-              )}
-              {item.node.categoryTitle === "Design" && (
-                <FiFigma style={{ height: 40, width: 40, marginBottom: 20 }} />
-              )}
-              {item.node.categoryTitle === "Tools & Platforms" && (
-                <SiGithub style={{ height: 40, width: 40, marginBottom: 20 }} />
-              )}
-              <Title>{item.node.categoryTitle}</Title>
-              <ListContainer>
-                <List>
-                  {item.node.categoryList.map(str => {
-                    return `
+    <Fade duration={1000} delay={100}>
+      <TechContainer id="tech">
+        <Heading>Technologies I've Working With Recently</Heading>
+        <Wrapper>
+          {techData.allContentfulTech.edges.map((item, index) => {
+            return (
+              <TechBox key={index}>
+                {item.node.categoryTitle === "Languages" && (
+                  <SiJavascript
+                    style={{ height: 40, width: 40, marginBottom: 20 }}
+                  />
+                )}
+                {item.node.categoryTitle === "Frameworks & Libraries" && (
+                  <SiReact
+                    style={{ height: 40, width: 40, marginBottom: 20 }}
+                  />
+                )}
+                {item.node.categoryTitle === "Design" && (
+                  <FiFigma
+                    style={{ height: 40, width: 40, marginBottom: 20 }}
+                  />
+                )}
+                {item.node.categoryTitle === "Tools & Platforms" && (
+                  <SiGithub
+                    style={{ height: 40, width: 40, marginBottom: 20 }}
+                  />
+                )}
+                <Title>{item.node.categoryTitle}</Title>
+                <ListContainer>
+                  <List>
+                    {item.node.categoryList.map(str => {
+                      return `
           ${str}
         `
-                  })}
-                </List>
-              </ListContainer>
-            </TechBox>
-          )
-        })}
-      </Wrapper>
-    </TechContainer>
+                    })}
+                  </List>
+                </ListContainer>
+              </TechBox>
+            )
+          })}
+        </Wrapper>
+      </TechContainer>
+    </Fade>
   )
 }
 

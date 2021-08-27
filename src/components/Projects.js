@@ -1,8 +1,9 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa"
+import Fade from "react-reveal/Fade"
+import styled from "styled-components"
 
 const Projects = () => {
   const projectsData = useStaticQuery(graphql`
@@ -36,51 +37,55 @@ const Projects = () => {
 
   return (
     <>
-      <ProjectsContainer id="projects">
-        <ProjectPageTitle>{title.name}</ProjectPageTitle>
-        {projectsData.allContentfulProjects.edges.map((item, index) => (
-          <ProjectsContent node={item} key={index}>
-            <ProjectWrapper>
-              <ProjectColumnOne>
-                <ImageLink
-                  href={item.node.projecUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Images
-                    key={index}
-                    image={item.node.projectImg.gatsbyImageData}
-                    alt={item.node.projectImg.title}
-                  />
-                </ImageLink>
-              </ProjectColumnOne>
-              <ProjectColumnTwo>
-                <ProjectH1>{item.node.name}</ProjectH1>
-                <ProjectDescription>{item.node.description}</ProjectDescription>
-                <TechList>{item.node.techList}</TechList>
-                <IconLinks>
-                  <RepositoryUrl
-                    href={item.node.repositoryUrl}
-                    target="blank"
-                    rel="noopener noreferrer"
-                    aria-label="Github"
-                  >
-                    <FaGithub />
-                  </RepositoryUrl>
-                  <ProjectUrl
+      <Fade duration={1000} delay={100}>
+        <ProjectsContainer id="projects">
+          <ProjectPageTitle>{title.name}</ProjectPageTitle>
+          {projectsData.allContentfulProjects.edges.map((item, index) => (
+            <ProjectsContent node={item} key={index}>
+              <ProjectWrapper>
+                <ProjectColumnOne>
+                  <ImageLink
                     href={item.node.projecUrl}
-                    target="blank"
+                    target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="ExternalLink"
                   >
-                    <FaExternalLinkAlt />
-                  </ProjectUrl>
-                </IconLinks>
-              </ProjectColumnTwo>
-            </ProjectWrapper>
-          </ProjectsContent>
-        ))}
-      </ProjectsContainer>
+                    <Images
+                      key={index}
+                      image={item.node.projectImg.gatsbyImageData}
+                      alt={item.node.projectImg.title}
+                    />
+                  </ImageLink>
+                </ProjectColumnOne>
+                <ProjectColumnTwo>
+                  <ProjectH1>{item.node.name}</ProjectH1>
+                  <ProjectDescription>
+                    {item.node.description}
+                  </ProjectDescription>
+                  <TechList>{item.node.techList}</TechList>
+                  <IconLinks>
+                    <RepositoryUrl
+                      href={item.node.repositoryUrl}
+                      target="blank"
+                      rel="noopener noreferrer"
+                      aria-label="Github"
+                    >
+                      <FaGithub />
+                    </RepositoryUrl>
+                    <ProjectUrl
+                      href={item.node.projecUrl}
+                      target="blank"
+                      rel="noopener noreferrer"
+                      aria-label="ExternalLink"
+                    >
+                      <FaExternalLinkAlt />
+                    </ProjectUrl>
+                  </IconLinks>
+                </ProjectColumnTwo>
+              </ProjectWrapper>
+            </ProjectsContent>
+          ))}
+        </ProjectsContainer>
+      </Fade>
     </>
   )
 }

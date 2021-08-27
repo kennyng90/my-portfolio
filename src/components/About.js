@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import Fade from "react-reveal/Fade"
+import styled from "styled-components"
 
 const About = () => {
   const [mobile, setMobile] = useState(false)
@@ -45,44 +46,46 @@ const About = () => {
   const aboutContentful = aboutData.allContentfulPortfolio.nodes[0]
 
   return (
-    <AboutContainer id="about">
-      <AboutH1>{aboutContentful.aboutTitle}</AboutH1>
-      <AboutWrapper>
-        {mobile ? (
-          <>
-            <AboutColumnTwo>
-              <Images
-                image={image.profile.gatsbyImageData}
-                alt={image.profile.description}
-              />
-            </AboutColumnTwo>
-            <AboutColumnOne>
-              <AboutDescription>
-                {documentToReactComponents(
-                  JSON.parse(aboutContentful.aboutDesc.raw)
-                )}
-              </AboutDescription>
-            </AboutColumnOne>
-          </>
-        ) : (
-          <>
-            <AboutColumnOne>
-              <AboutDescription>
-                {documentToReactComponents(
-                  JSON.parse(aboutContentful.aboutDesc.raw)
-                )}
-              </AboutDescription>
-            </AboutColumnOne>
-            <AboutColumnTwo>
-              <Images
-                image={image.profile.gatsbyImageData}
-                alt={image.profile.description}
-              />
-            </AboutColumnTwo>
-          </>
-        )}
-      </AboutWrapper>
-    </AboutContainer>
+    <Fade duration={1000} delay={100}>
+      <AboutContainer id="about">
+        <AboutH1>{aboutContentful.aboutTitle}</AboutH1>
+        <AboutWrapper>
+          {mobile ? (
+            <>
+              <AboutColumnTwo>
+                <Images
+                  image={image.profile.gatsbyImageData}
+                  alt={image.profile.description}
+                />
+              </AboutColumnTwo>
+              <AboutColumnOne>
+                <AboutDescription>
+                  {documentToReactComponents(
+                    JSON.parse(aboutContentful.aboutDesc.raw)
+                  )}
+                </AboutDescription>
+              </AboutColumnOne>
+            </>
+          ) : (
+            <>
+              <AboutColumnOne>
+                <AboutDescription>
+                  {documentToReactComponents(
+                    JSON.parse(aboutContentful.aboutDesc.raw)
+                  )}
+                </AboutDescription>
+              </AboutColumnOne>
+              <AboutColumnTwo>
+                <Images
+                  image={image.profile.gatsbyImageData}
+                  alt={image.profile.description}
+                />
+              </AboutColumnTwo>
+            </>
+          )}
+        </AboutWrapper>
+      </AboutContainer>
+    </Fade>
   )
 }
 

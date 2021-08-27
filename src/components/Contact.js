@@ -1,18 +1,21 @@
 import React from "react"
 import ContactForm from "./ContactForm"
 import styled from "styled-components"
+import Fade from "react-reveal/Fade"
 
 const Contact = () => {
   return (
-    <Container>
-      <ContactH1 id="contact">Get In Touch</ContactH1>
-      <ContactP>Got a question or just want to say hi?</ContactP>
-      <Wrapper>
-        <Details>
-          <ContactForm />
-        </Details>
-      </Wrapper>
-    </Container>
+    <Fade duration={1000} delay={100}>
+      <Container>
+        <ContactH1 id="contact">Get In Touch</ContactH1>
+        <ContactP>Got a question or just want to say hi?</ContactP>
+        <Wrapper>
+          <Details>
+            <ContactForm />
+          </Details>
+        </Wrapper>
+      </Container>
+    </Fade>
   )
 }
 

@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { Link as LinkS } from "react-scroll"
+import Fade from "react-reveal/Fade"
 import styled from "styled-components"
 
 const Hero = () => {
@@ -24,20 +25,24 @@ const Hero = () => {
       <HeroContainer>
         <HeroContent>
           <HeroItems>
-            <HeroDesc>
-              {documentToReactComponents(
-                JSON.parse(heroContentful.heroDescription.raw)
-              )}
-            </HeroDesc>
-            <Link
-              to="contact"
-              smooth={true}
-              duration={500}
-              spy={true}
-              exact="true"
-            >
-              Get In Touch
-            </Link>
+            <Fade duration={1000} delay={100}>
+              <HeroDesc>
+                {documentToReactComponents(
+                  JSON.parse(heroContentful.heroDescription.raw)
+                )}
+              </HeroDesc>
+            </Fade>
+            <Fade duration={1000} delay={400}>
+              <Link
+                to="contact"
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact="true"
+              >
+                Get In Touch
+              </Link>
+            </Fade>
           </HeroItems>
         </HeroContent>
       </HeroContainer>
@@ -77,8 +82,9 @@ const HeroItems = styled.div`
 `
 
 const HeroDesc = styled.div`
-  font-size: clamp(2rem, 6vw, 3rem);
-  margin-top: 5.5rem;
+  font-size: clamp(2.1rem, 6vw, 3rem);
+  margin-top: -0.5rem;
+  margin-bottom: 5rem;
   letter-spacing: 3px;
   line-height: 1.8;
   padding: 0 1rem;
@@ -94,7 +100,7 @@ const Link = styled(LinkS)`
   text-align: center;
   padding: 1rem 2rem;
   width: 12rem;
-  margin: 4rem 1rem;
+  margin: 0 1rem;
   cursor: pointer;
   font-size: 1.4rem;
   border-radius: 6px;
@@ -107,7 +113,7 @@ const Link = styled(LinkS)`
 
   @media screen and (max-width: 700px) {
     font-size: 1rem;
-    padding: 1rem 0rem;
+    padding: 1rem 1rem;
     width: 8rem;
   }
 `
