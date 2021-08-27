@@ -1,3 +1,3 @@
 module.exports = {
-  url: "https://kennyn.vercel.app",
+  url: "https://www.kennyn.dev",
 }
