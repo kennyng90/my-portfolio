@@ -9,7 +9,7 @@ const { ACCESS_TOKEN, SPACE_ID } = process.env
 module.exports = {
   siteMetadata: {
     title: `Kenny N`,
-    description: `KennyN portfolio developed with Gatsby and Contentful.`,
+    description: `Kenny N Portfolio Website developed with GatsbyJS and Contentful.`,
     author: `Kenny Nguyen`,
     siteUrl: `https://kennyn.dev`,
   },

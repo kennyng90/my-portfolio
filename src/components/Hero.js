@@ -22,9 +22,9 @@ const Hero = () => {
 
   return (
     <>
-      <Fade duration={1000} delay={50}>
-        <HeroContainer>
-          <HeroContent>
+      <HeroContainer>
+        <HeroContent>
+          <Fade duration={1000} delay={50}>
             <HeroItems>
               <HeroDesc>
                 {documentToReactComponents(
@@ -41,9 +41,9 @@ const Hero = () => {
                 Get In Touch
               </Link>
             </HeroItems>
-          </HeroContent>
-        </HeroContainer>
-      </Fade>
+          </Fade>
+        </HeroContent>
+      </HeroContainer>
     </>
   )
 }
@@ -80,7 +80,7 @@ const HeroItems = styled.div`
 `
 
 const HeroDesc = styled.div`
-  font-size: clamp(2.1rem, 6vw, 3rem);
+  font-size: clamp(1.8rem, 6vw, 3rem);
   margin-top: -0.5rem;
   margin-bottom: 5rem;
   letter-spacing: 3px;
@@ -88,18 +88,16 @@ const HeroDesc = styled.div`
   padding: 0 1rem;
   width: 700px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 799px) {
     margin-top: 4rem;
     line-height: 1.5;
     width: 90%;
   }
 
-  @media screen and (max-width: 545px) {
-    width: 85%;
-  }
-
   @media screen and (max-width: 420px) {
-    width: 80%;
+    margin-top: 4rem;
+    line-height: 1.5;
+    width: 70%;
   }
 `
 const Link = styled(LinkS)`
