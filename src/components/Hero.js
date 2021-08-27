@@ -22,7 +22,7 @@ const Hero = () => {
 
   return (
     <>
-      <Fade duration={1000} delay={0}>
+      <Fade duration={1000} delay={50}>
         <HeroContainer>
           <HeroContent>
             <HeroItems>
