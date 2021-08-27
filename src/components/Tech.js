@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { SiReact, SiRedux, SiGraphql } from "react-icons/si"
+import { SiReact, SiJavascript, SiGithub } from "react-icons/si"
 import { FiFigma } from "react-icons/fi"
 import styled from "styled-components"
 
@@ -25,19 +25,19 @@ const Tech = () => {
         {techData.allContentfulTech.edges.map((item, index) => {
           return (
             <TechBox key={index}>
-              {item.node.categoryTitle === "Front-End" && (
-                <SiReact style={{ height: 40, width: 40, marginBottom: 20 }} />
+              {item.node.categoryTitle === "Languages" && (
+                <SiJavascript
+                  style={{ height: 40, width: 40, marginBottom: 20 }}
+                />
               )}
-              {item.node.categoryTitle === "Back-End" && (
-                <SiRedux style={{ height: 40, width: 40, marginBottom: 20 }} />
+              {item.node.categoryTitle === "Frameworks & Libraries" && (
+                <SiReact style={{ height: 40, width: 40, marginBottom: 20 }} />
               )}
               {item.node.categoryTitle === "Design" && (
                 <FiFigma style={{ height: 40, width: 40, marginBottom: 20 }} />
               )}
-              {item.node.categoryTitle === "Other" && (
-                <SiGraphql
-                  style={{ height: 40, width: 40, marginBottom: 20 }}
-                />
+              {item.node.categoryTitle === "Tools & Platforms" && (
+                <SiGithub style={{ height: 40, width: 40, marginBottom: 20 }} />
               )}
               <Title>{item.node.categoryTitle}</Title>
               <ListContainer>
@@ -61,7 +61,7 @@ export default Tech
 
 const TechContainer = styled.div`
   width: 100%;
-  height: 70vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -102,7 +102,7 @@ const TechBox = styled.div`
 `
 
 const Title = styled.h1`
-  font-size: clamp(1.5rem, 6vw, 2rem);
+  font-size: clamp(1.2rem, 6vw, 1.4rem);
   margin-bottom: 0.5rem;
 
   @media screen and (max-width: 768px) {
