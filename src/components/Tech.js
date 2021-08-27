@@ -61,7 +61,7 @@ export default Tech
 
 const TechContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
