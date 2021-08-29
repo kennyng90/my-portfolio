@@ -4,7 +4,7 @@
 
 ## Live
 
-[My Portfolio - Live](https://kennyn.dev)
+[kennyn.dev](https://kennyn.dev)
 
 ## Built with
 
