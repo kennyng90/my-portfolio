@@ -1,6 +1,6 @@
 ## My Portfolio
 
-![screenshot](https://github.com/kennyng90/my-portfolio/blob/main/uploads/portfolio.png)
+![screenshot](https://github.com/kennyng90/my-portfolio/blob/master/uploads/portfolio.png)
 
 ## Live
 
