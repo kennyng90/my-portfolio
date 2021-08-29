@@ -95,9 +95,7 @@ const HeroDesc = styled.div`
   }
 
   @media screen and (max-width: 420px) {
-    margin-top: 4rem;
-    line-height: 1.5;
-    width: 70%;
+    width: 80%;
   }
 `
 const Link = styled(LinkS)`

@@ -20,7 +20,7 @@ const Tech = () => {
   `)
 
   return (
-    <Fade duration={1000} delay={100}>
+    <Fade duration={1000} delay={50}>
       <TechContainer id="tech">
         <Heading>Technologies I've Working With Recently</Heading>
         <Wrapper>
