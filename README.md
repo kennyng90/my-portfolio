@@ -1,6 +1,6 @@
 ## My Portfolio
 
-![](https://images.ctfassets.net/c8w8rjtbqdmf/NFmcIDOlVYvCsKW6x2Kmb/8bf8819ca464b5a9d8f5c236f4c4f56d/portfolio.PNG?w=628&h=391&q=50&fm=webp)
+![screenshot](https://github.com/kennyng90/my-portfolio/blob/main/uploads/portfolio.png)
 
 ## Live
 
@@ -22,6 +22,5 @@
 - Dynamic content from Contentful
 - React Reveal
 - A contact form protected by Google Recaptcha
-- Formik API
 - Responsive design
 - Styled-Components for styling
