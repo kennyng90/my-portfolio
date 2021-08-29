@@ -76,13 +76,12 @@ const HeroItems = styled.div`
 `
 
 const HeroDesc = styled.div`
-  font-size: clamp(1.8rem, 6vw, 3rem);
-  margin-top: -0.5rem;
-  margin-bottom: 5rem;
+  font-size: clamp(1.8rem, 6vw, 2.7rem);
+  margin-bottom: 3rem;
   letter-spacing: 3px;
   line-height: 1.8;
   padding: 0 1rem;
-  width: 700px;
+  width: 600px;
 
   @media screen and (max-width: 799px) {
     margin-top: 4rem;
@@ -102,10 +101,10 @@ const HeroDesc = styled.div`
 const Link = styled(LinkS)`
   text-align: center;
   padding: 1rem 2rem;
-  width: 12rem;
+  width: 10rem;
   margin: 0 1rem;
   cursor: pointer;
-  font-size: 1.4rem;
+  font-size: 1rem;
   border-radius: 6px;
   border: 2px solid currentColor;
 
@@ -115,7 +114,6 @@ const Link = styled(LinkS)`
   }
 
   @media screen and (max-width: 700px) {
-    font-size: 1rem;
     padding: 1rem 1rem;
     width: 8rem;
   }
