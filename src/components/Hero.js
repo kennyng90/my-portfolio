@@ -95,7 +95,12 @@ const HeroDesc = styled.div`
   }
 
   @media screen and (max-width: 420px) {
-    width: 80%;
+    width: 70%;
+    font-size: 1.8rem;
+  }
+
+  @media screen and (max-width: 375px) {
+    font-size: 1.6rem;
   }
 `
 const Link = styled(LinkS)`
