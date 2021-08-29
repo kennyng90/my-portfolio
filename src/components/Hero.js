@@ -58,10 +58,6 @@ const HeroContainer = styled.div`
   padding: 0 1rem;
   position: relative;
   margin-top: -80px;
-
-  @media screen and (max-width: 1024px) {
-    height: 100vh;
-  }
 `
 const HeroContent = styled.div`
   z-index: 3;
