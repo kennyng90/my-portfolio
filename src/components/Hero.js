@@ -90,7 +90,7 @@ const HeroDesc = styled.div`
   }
 
   @media screen and (max-width: 420px) {
-    width: 70%;
+    width: 75%;
     font-size: 1.8rem;
   }
 
