@@ -77,11 +77,6 @@ const TechContainer = styled.div`
   padding: 0rem calc((100vw - 1100px) / 2);
   margin-top: 8rem;
 
-  @media screen and (max-width: 1024px) {
-    height: 60vh;
-    margin-top: 4rem;
-  }
-
   @media screen and (max-width: 768px) {
     margin-top: 6rem;
     height: 100%;

@@ -157,6 +157,10 @@ const AboutColumnTwo = styled.div`
   width: 100%;
   justify-items: end;
 
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+  }
+
   @media screen and (max-width: 768px) {
     justify-items: center;
     margin-top: 4rem;

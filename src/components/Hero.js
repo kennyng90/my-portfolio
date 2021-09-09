@@ -58,10 +58,6 @@ const HeroContainer = styled.div`
   padding: 0 1rem;
   position: relative;
   margin-top: -80px;
-
-  @media screen and (max-width: 1024px) {
-    height: 100vh;
-  }
 `
 const HeroContent = styled.div`
   z-index: 3;
@@ -80,13 +76,12 @@ const HeroItems = styled.div`
 `
 
 const HeroDesc = styled.div`
-  font-size: clamp(1.8rem, 6vw, 3rem);
-  margin-top: -0.5rem;
-  margin-bottom: 5rem;
+  font-size: clamp(1.8rem, 6vw, 2.7rem);
+  margin-bottom: 3rem;
   letter-spacing: 3px;
   line-height: 1.8;
   padding: 0 1rem;
-  width: 700px;
+  width: 600px;
 
   @media screen and (max-width: 799px) {
     margin-top: 4rem;
@@ -95,16 +90,21 @@ const HeroDesc = styled.div`
   }
 
   @media screen and (max-width: 420px) {
-    width: 80%;
+    width: 75%;
+    font-size: 1.8rem;
+  }
+
+  @media screen and (max-width: 375px) {
+    font-size: 1.6rem;
   }
 `
 const Link = styled(LinkS)`
   text-align: center;
   padding: 1rem 2rem;
-  width: 12rem;
+  width: 10rem;
   margin: 0 1rem;
   cursor: pointer;
-  font-size: 1.4rem;
+  font-size: 1rem;
   border-radius: 6px;
   border: 2px solid currentColor;
 
@@ -114,7 +114,6 @@ const Link = styled(LinkS)`
   }
 
   @media screen and (max-width: 700px) {
-    font-size: 1rem;
     padding: 1rem 1rem;
     width: 8rem;
   }
