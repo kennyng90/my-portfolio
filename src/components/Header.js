@@ -51,9 +51,6 @@ const Header = ({ toggle, isOpen }) => {
                 {item.title}
               </NavLink>
             ))}
-            <NavA href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-              Resume
-            </NavA>
             <Toggle theme={theme} toggleTheme={themeToggler} />
           </NavMenu>
 
@@ -83,13 +80,6 @@ const Header = ({ toggle, isOpen }) => {
                     {item.title}
                   </SidebarLinks>
                 ))}
-                <SideA
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Resume
-                </SideA>
                 <Toggle theme={theme} toggleTheme={themeToggler} />
               </SidebarMenu>
             </SidebarWrapper>
@@ -138,38 +128,6 @@ const NavLink = styled(LinkS)`
   margin: 0 1.2rem;
   background-color: transparent;
   position: relative;
-  cursor: pointer;
-
-  &:after {
-    content: "";
-    position: absolute;
-    transform: scaleX(0);
-    height: 2px;
-    width: 100%;
-
-    bottom: 15px;
-    left: 0;
-    background-color: ${({ theme }) => theme.text};
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  }
-
-  &:hover:after {
-    color: ${({ theme }) => theme.text};
-    transition: 0.3s ease-out;
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-`
-
-const NavA = styled.a`
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  height: 100%;
-  margin: 0 1.2rem;
-  position: relative;
-  background-color: transparent;
   cursor: pointer;
 
   &:after {
@@ -287,38 +245,6 @@ const SidebarLinks = styled(LinkS)`
     left: 0;
     background-color: ${({ theme }) => theme.text};
 
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  }
-
-  &:hover:after {
-    color: ${({ theme }) => theme.text};
-    transition: 0.3s ease-out;
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-`
-
-const SideA = styled.a`
-  display: flex;
-  font-size: 1.2rem;
-  align-items: center;
-  text-decoration: none;
-  margin-bottom: 3.4rem;
-  position: relative;
-  cursor: pointer;
-  background-color: transparent;
-
-  &:after {
-    content: "";
-    position: absolute;
-    transform: scaleX(0);
-    height: 2px;
-    width: 100%;
-
-    bottom: -10px;
-    left: 0;
-    background-color: ${({ theme }) => theme.text};
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
