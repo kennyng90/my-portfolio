@@ -13,8 +13,6 @@
 - Contentful
 - Formium
 - Google recaptcha
-- VSCode
-- And these useful of JavaScript libraries & Gatsby plugins [package.json](package.json)
 
 ## Features
 
